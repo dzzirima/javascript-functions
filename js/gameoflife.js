@@ -1,13 +1,34 @@
-function seed() {}
+function seed() {
+  return [...arguments]
+}
 
-function same([x, y], [j, k]) {}
+function same([x, y], [j, k]) {
+  let same = (arguments[0][0] === arguments[1][0]) && (arguments[0][1] === arguments[1][1])
+  return same
+}
 
 // The game state to search for `cell` is passed as the `this` value of the function.
-function contains(cell) {}
+function contains(cell) {
+  if(this.indexOf(cell) === -1){
+    return false
+  }else{
+    return true
+  }
 
-const printCell = (cell, state) => {};
+}
 
-const corners = (state = []) => {};
+const printCell = (cell, state) => {
+  let state = state
+  if(contains.call(cell)){
+    return('\u25A3')
+  }else{
+    return('\u25A2')
+  }
+};
+
+const corners = (state = []) => {
+  
+};
 
 const printCells = (state) => {};
 
